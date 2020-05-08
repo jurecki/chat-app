@@ -99,6 +99,16 @@ p {
   font-size: 0.9rem;
   max-width: 200px;
 }
+.chatBotMessage__content {
+  background: rgb(156, 153, 153);
+  border: none;
+  border-radius: 15px 5px 15px 15px;
+  padding: 10px 25px;
+  color: white;
+  font-size: 0.9rem;
+  font-style: italic;
+  max-width: 200px;
+}
 
 .message--self .message__content {
   background: #3498db;

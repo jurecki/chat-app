@@ -8,6 +8,20 @@ const messageContentInput = document.getElementById('message-content');
 let userName = '';
 
 socket.on('message', ({ author, content }) => addMessage(author, content))
+socket.on('newUser', ({ author, content }) => chatBotMessage(author, content))
+
+function chatBotMessage(author, content) {
+    const message = document.createElement('li');
+    message.setAttribute('class', 'message message--received');
+    author === userName ?
+        message.setAttribute('class', 'message message--received message--self') :
+        message.setAttribute('class', 'message message--received');
+    message.innerHTML = `<h3 class="message__author">${author === userName ? 'You' : author}</h3>
+        <div class="chatBotMessage__content">
+            ${content}
+        </div>`;
+    messagesList.appendChild(message)
+}
 
 function login() {
     event.preventDefault(event);
